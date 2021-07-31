@@ -22,4 +22,8 @@ export class ApiService {
   updateMovie(movie:any): Observable<any>{
     return this.http.put(this.baseUrl + '/movies/'+ movie.id + '/', movie, {headers: this.httpHeaders});
   }
+
+  createMovie(movie:any): Observable<any>{
+    return this.http.post(this.baseUrl + '/movies/', movie, {headers: this.httpHeaders});
+  }
 }
