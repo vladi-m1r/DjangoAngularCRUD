@@ -26,4 +26,8 @@ export class ApiService {
   createMovie(movie:any): Observable<any>{
     return this.http.post(this.baseUrl + '/movies/', movie, {headers: this.httpHeaders});
   }
+
+  deleteMovie(id:number): Observable<any>{
+    return this.http.delete(this.baseUrl + '/movies/'+ id + '/', {headers: this.httpHeaders});
+  }
 }

@@ -20,7 +20,6 @@ export class AppComponent {
   getMovies = () => {
     this.api.getAllMovies().subscribe(
       data => {
-        alert("Se cargo las peliculas con exito");
         this.movies = data;
       },
       error => {
@@ -45,7 +44,7 @@ export class AppComponent {
   updateMovie = () => {
     this.api.updateMovie(this.selectedMovie).subscribe(
       data => {
-        this.selectedMovie = data;
+        this.getMovies();
       },
       error => {
         console.log(error);
@@ -56,7 +55,18 @@ export class AppComponent {
   createMovie = () => {
     this.api.createMovie(this.selectedMovie).subscribe(
       data => {
-        this.movies.push(data)
+        this.movies.push(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteMovie = () => {
+    this.api.deleteMovie(this.selectedMovie.id).subscribe(
+      data => {
+        this.getMovies();
       },
       error => {
         console.log(error);
