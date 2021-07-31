@@ -14,4 +14,8 @@ export class ApiService {
   getAllMovies(): Observable<any>{
     return this.http.get(this.baseUrl + '/movies/', {headers: this.httpHeaders});
   }
+
+  getOneMovie(id:number): Observable<any>{
+    return this.http.get(this.baseUrl + '/movies/'+ id + '/', {headers: this.httpHeaders});
+  }
 }

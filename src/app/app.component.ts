@@ -27,4 +27,16 @@ export class AppComponent {
     );
   }
 
+  movieClicked = (movie:any) => {
+    console.log(movie.id);
+    this.api.getOneMovie(movie.id).subscribe(
+      data => {
+        console.log(data)
+      },
+      error => {
+        console.log(error)
+      }
+    );
+  }
+
 }
